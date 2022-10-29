@@ -1,0 +1,109 @@
+.header-btn {
+    height: 42px;
+    background: #E7E7E7;
+}
+
+.header-btn:hover {
+    background: #dadada;
+}
+
+.header-btn:active {
+    background: #bbbbbb;
+}
+
+.user-name-text {
+    font-family: 'Comfortaa', serif;
+    font-size: 24px;
+    line-height: 27px;
+
+    cursor: pointer;
+}
+
+.content-wrapper {
+    margin: 30px 70px 0 70px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.first-line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.line-title {
+    font-family: 'Comfortaa', serif;
+    font-size: 32px;
+    line-height: 36px;
+}
+
+.middle-btn {
+    width: 290px;
+}
+
+.user_img {
+    height: 150px;
+    width: 108px;
+
+    object-fit: contain;
+}
+
+.table-btn {
+    width: 230px;
+    height: 42px;
+}
+
+.table-btn .btn-text {
+    font-size: 20px;
+    line-height: 22px;
+}
+
+
+th:nth-child(1) {
+    width: 126px;
+    text-align: left;
+}
+
+th:nth-child(2) {
+    width: 256px;
+    text-align: left;
+}
+
+th:nth-child(3) {
+    width: 166px;
+    text-align: left;
+}
+
+th:nth-child(4) {
+    width: 208px;
+}
+
+th:nth-child(5) {
+    width: 133px;
+}
+
+th:nth-child(6) {
+    width: 330px;
+}
+
+
+td:nth-child(4) {
+    text-align: center;
+}
+
+td:nth-child(5) {
+    text-align: center;
+}
+
+
+.add-friend-form .params .params-names {
+    padding-top: 6px;
+}
+
+.add-friend-form .control-buttons {
+    gap: 85px;
+}
+

@@ -1,0 +1,68 @@
+<div class="header">
+    <div class="left-header" (click)="goToHomePage()">
+        <span class="material-symbols-outlined header-icon"> accessibility_new </span>
+        <div class="header-text">Social Network Manager</div>
+    </div>
+    <div class="right-header">
+        <div class="user-name-text" (click)="goToUserPage()">{{ user_name }}</div>
+        <button *ngIf="isAdmin()" class="btn header-btn" (click)="openAdminPage()">
+            <div class="btn-text">Admin</div>
+        </button>
+        <button class="btn header-btn" (click)="logOut()">
+            <div class="btn-text">Log Out</div>
+        </button>
+    </div>
+</div>
+
+<div class="content-wrapper">
+    <div class="first-line">
+        <div class="line-title">News Feed</div>
+        <button class="btn middle-btn" (click)="goToFriendsPage()">
+            <div class="btn-text">Friends List</div>
+        </button>
+        <button class="btn" (click)="openForm()">
+            <div class="btn-text">Add News</div>
+        </button>
+    </div>
+    <div class="table">
+        <table>
+            <thead>
+            <tr>
+                <th>
+                    <div class="head-block">Title</div>
+                </th>
+                <th>
+                    <div class="head-block">News Content</div>
+                </th>
+            </tr>
+            </thead>
+            <tbody id="friendsTBody">
+            <ng-container *ngFor="let news of news_list">
+                <tr>
+                    <td>{{ news.title }}</td>
+                    <td>{{ news.content }}</td>
+                </tr>
+            </ng-container>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<dialog class="dialog add-news-form" id="addNewsForm" [open]="formVisibility">
+    <form class="wrapper" [formGroup]="addForm" (ngSubmit)="onFormSubmit()">
+        <div class="dialog-header-text">Add News</div>
+        <div class="params">
+            <input class="title-input" formControlName="titleControl">
+            <textarea class="content-input" formControlName="contentControl"></textarea>
+        </div>
+        <div class="control-buttons">
+            <button class="btn" type="button" (click)="closeForm()">
+                <div class="btn-text">Cancel</div>
+            </button>
+            <button class="btn" type="submit" [disabled]="!addForm.valid">
+                <div class="btn-text">Add</div>
+            </button>
+        </div>
+    </form>
+</dialog>

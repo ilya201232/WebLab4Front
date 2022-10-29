@@ -1,0 +1,54 @@
+<div class="header">
+    <div class="left-header" (click)="goToHomePage()">
+        <span class="material-symbols-outlined header-icon"> accessibility_new </span>
+        <div class="header-text">Social Network Manager</div>
+    </div>
+    <div class="right-header">
+        <div class="user-name-text">{{ user_name }}</div>
+        <button *ngIf="isAdmin()" class="btn header-btn" (click)="openAdminPage()">
+            <div class="btn-text">Admin</div>
+        </button>
+        <button class="btn header-btn" (click)="logOut()">
+            <div class="btn-text">Log Out</div>
+        </button>
+    </div>
+</div>
+<div class="content-wrapper">
+<!--    TODO - img source depends on current user data -->
+    <img class="avatar" src="{{ 'https://localhost:3000/public/images/users/' + user_avatar }}" alt="Couldn't load the picture">
+    <form class="user-data-form" [formGroup]="editUserForm" (ngSubmit)="onSubmit()">
+        <div class="title-text">User Data</div>
+        <div class="params">
+            <div class="params-names">
+                <div class="params-text">Email:</div>
+                <div class="params-text">Full Name:</div>
+                <div class="params-text">Date of Birth:</div>
+                <div class="params-text">Avatar:</div>
+            </div>
+            <div class="params-inputs">
+                <div class="email-text">{{ user_email }}</div>
+                <input formControlName="fullNameControl">
+                <input formControlName="dateOfBirthControl" type="date">
+                <label for="fileInput" class="file-input-label">
+                    <div class="wrapper">
+                        <span class="material-symbols-outlined"> cloud_upload </span>
+                        <div>Choose Photo</div>
+                    </div>
+                    <div class="chosen-file-text">{{ file_name }}</div>
+                </label>
+                <input formControlName="avatarControl" id="fileInput" type="file" accept="image/png" (change)="onFileSet($event)">
+            </div>
+        </div>
+        <div class="control-buttons">
+            <button class="btn" type="button" (click)="returnToNewsPage()">
+                <div class="btn-text">Cancel</div>
+            </button>
+            <button class="btn" type="button" (click)="removeAvatar()">
+                <div class="btn-text">Remove Avatar</div>
+            </button>
+            <button class="btn" type="submit" [disabled]="!editUserForm.valid">
+                <div class="btn-text">Save</div>
+            </button>
+        </div>
+    </form>
+</div>

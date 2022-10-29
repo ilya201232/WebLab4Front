@@ -1,0 +1,94 @@
+<div class="header">
+    <div class="left-header" (click)="goToHomePage()">
+        <span class="material-symbols-outlined header-icon"> accessibility_new </span>
+        <div class="header-text">Social Network Manager</div>
+    </div>
+    <div class="right-header">
+        <div class="user-name-text" (click)="goToUserPage()">{{ user_name }}</div>
+        <button *ngIf="isAdmin()" class="btn header-btn" (click)="openAdminPage()">
+            <div class="btn-text">Admin</div>
+        </button>
+        <button class="btn header-btn" (click)="logOut()">
+            <div class="btn-text">Log Out</div>
+        </button>
+    </div>
+</div>
+
+<div class="content-wrapper">
+    <div class="first-line">
+        <div class="line-title">Friends List</div>
+        <button class="btn middle-btn" (click)="goToNewsPage()">
+            <div class="btn-text">News Feed</div>
+        </button>
+        <button class="btn" (click)="openForm()">
+            <div class="btn-text">Add Friend</div>
+        </button>
+    </div>
+    <div class="table">
+        <table>
+            <thead>
+            <tr>
+                <th>
+                    <div class="head-block">Photo</div>
+                </th>
+                <th>
+                    <div class="head-block">Full Name</div>
+                </th>
+                <th>
+                    <div class="head-block">Date of Birth</div>
+                </th>
+                <th>
+                    <div class="head-block">Email</div>
+                </th>
+                <th>
+                    <div class="head-block">Role</div>
+                </th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody id="friendsTBody" *ngIf="check()" >
+            <ng-container *ngFor="let friend of friends_list">
+                <tr>
+                    <td><img class='user_img' src="{{ 'https://localhost:3000/public/images/users/' + friend.avatar_img_name }}"></td>
+                    <td>{{ friend.full_name }}</td>
+                    <td>{{ friend.date_of_birth }}</td>
+                    <td>{{ friend.email }}</td>
+                    <td>{{ friend.role }}</td>
+                    <td>
+                        <span class="table-btns">
+                            <button class="btn table-btn" (click)="removeFriend(friend.email)">
+                            <div class="btn-text">
+                                Remove Friend
+                            </div>
+                        </button>
+                        </span>
+                    </td>
+                </tr>
+            </ng-container>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<dialog class="dialog add-friend-form" id="addFriendForm" [open]="formVisibility">
+    <form class="wrapper" [formGroup]="addForm" (ngSubmit)="onFormSubmit()">
+        <div class="dialog-header-text">Add Friend</div>
+        <div class="params">
+            <div class="params-names">
+                <div class="params-text">Email:</div>
+            </div>
+            <div class="params-inputs">
+                <input formControlName="emailControl">
+            </div>
+        </div>
+        <div class="control-buttons">
+            <button class="btn" type="button" (click)="closeForm()">
+                <div class="btn-text">Cancel</div>
+            </button>
+            <button class="btn" type="submit">
+                <div class="btn-text">Add</div>
+            </button>
+        </div>
+    </form>
+</dialog>

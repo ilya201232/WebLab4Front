@@ -1,0 +1,61 @@
+
+.left-header {
+    cursor: default !important;
+}
+
+.header-btn {
+    height: 42px;
+    background: #E7E7E7;
+}
+
+.header-btn:hover {
+    background: #dadada;
+}
+
+.header-btn:active {
+    background: #bbbbbb;
+}
+
+
+.log-in-form .params .params-names {
+    padding-top: 8px;
+    gap: 78px;
+}
+
+.log-in-form .params .params-inputs {
+    gap: 60px;
+}
+
+.log-in-form .control-buttons {
+    gap: 85px;
+}
+
+
+.sign-up-form {
+    min-width: 850px;
+}
+
+.sign-up-form .params .params-names {
+    padding-top: 8px;
+    gap: 26px;
+}
+
+.sign-up-form .params .params-inputs {
+    gap: 9px;
+}
+
+.sign-up-form input[type="date"]{
+    text-align: center;
+}
+
+.sign-up-form .control-buttons {
+    gap: 85px;
+}
+
+.user-name-text {
+    font-family: 'Comfortaa', serif;
+    font-size: 24px;
+    line-height: 27px;
+
+    cursor: pointer;
+}
